@@ -997,6 +997,132 @@
       transform: translateY(0);
     }
 
+    /* ── MOBILE OVERRIDES (≤ 540px) ──────────────────────── */
+
+    @media (max-width: 540px) {
+
+      /* Nav */
+      .nav {
+        padding: 0 16px;
+        gap: 12px;
+      }
+      .nav-logo img {
+        height: 30px;
+      }
+      .nav-cta {
+        font-size: 12px;
+        padding: 8px 14px;
+        gap: 5px;
+      }
+
+      /* Sections */
+      section {
+        padding: 60px 20px;
+      }
+      .stats-section {
+        padding: 44px 20px;
+      }
+
+      /* Section tags — center on mobile */
+      .section-tag {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* Hero */
+      .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+      }
+      .hero-headline {
+        font-size: clamp(1.9rem, 8vw, 2.6rem);
+      }
+      .hero-sub {
+        font-size: 1rem;
+      }
+      .hero-cta {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* About — center left column text on mobile */
+      .about-grid > div:first-child {
+        text-align: center;
+      }
+      .about-grid > div:first-child .section-tag {
+        justify-content: center;
+      }
+      .about-lead {
+        font-size: clamp(1.2rem, 5vw, 1.5rem);
+      }
+      .about-body {
+        text-align: left;
+      }
+
+      /* Architecture diagram — stack vertically on mobile */
+      .arch-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+      .arch-arrow {
+        flex-direction: row;
+        justify-content: center;
+        padding: 6px 0;
+        gap: 0;
+        align-items: center;
+      }
+      .arch-arrow-line {
+        width: 1px;
+        height: 20px;
+        background: var(--border-2);
+      }
+      .arch-arrow-head {
+        display: none;
+      }
+
+      /* How steps — center content */
+      .how-step {
+        padding: 0 0 40px;
+        text-align: center;
+      }
+      .how-step:first-child {
+        padding-left: 0;
+      }
+      .how-step:last-child {
+        padding-right: 0;
+        padding-bottom: 0;
+      }
+      .how-step-num {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Contact — center left-column text */
+      .contact-left {
+        text-align: center;
+      }
+      .contact-left .section-tag {
+        justify-content: center;
+      }
+      .contact-details {
+        text-align: left;
+      }
+
+      /* Submit button — full width on mobile */
+      .btn-submit {
+        align-self: stretch;
+        width: 100%;
+      }
+
+      /* Footer */
+      .site-footer {
+        padding: 36px 20px 28px;
+      }
+    }
+
   </style>
 </head>
 <body>
