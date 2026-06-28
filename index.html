@@ -1501,5 +1501,55 @@
     }, { passive: true });
   </script>
 
+  <!-- Custom neon cursor -->
+  <style>
+    * { cursor: none !important; }
+    #cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 8px; height: 8px;
+      background: #60CCFF;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 8px #60CCFF, 0 0 20px #60CCFF, 0 0 40px rgba(96,204,255,0.6);
+      transition: width 0.15s, height 0.15s, opacity 0.15s;
+    }
+    #cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(96,204,255,0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, border-color 0.2s, opacity 0.15s;
+    }
+    body:has(a:hover) #cursor-ring,
+    body:has(button:hover) #cursor-ring {
+      width: 52px; height: 52px;
+      border-color: rgba(96,204,255,0.9);
+    }
+  </style>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+  <script>
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mx = -100, my = -100, rx = -100, ry = -100;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function tick() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      dot.style.left = mx + 'px';
+      dot.style.top = my + 'px';
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(tick);
+    })();
+  </script>
+
 </body>
 </html>
